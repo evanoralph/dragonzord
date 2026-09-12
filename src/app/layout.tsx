@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
+import { Archivo } from "next/font/google";
 import "./globals.css";
 
+const archivo = Archivo({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "800", "900"],
+  variable: "--font-archivo",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Dragon — Scroll Video",
-  description: "Scroll-scrubbed cinematic video demo",
+  title: "Dragonzord — Scroll Video",
+  description: "Scroll-scrubbed Dragonzord cinematic reveal",
 };
 
 export default function RootLayout({
@@ -11,8 +19,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log("[layout] RootLayout render — Archivo + Dragonzord metadata");
+
   return (
-    <html lang="en">
+    <html lang="en" className={archivo.variable}>
       <body>{children}</body>
     </html>
   );

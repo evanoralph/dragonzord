@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-bg: #0a0a0a;
+  --color-text: #f5f5f5;
+  --color-accent: #ec3013;
+  --color-accent-400: #ff9783;
+  --color-accent-500: #ff563c;
+  --font-heading: var(--font-archivo), system-ui, sans-serif;
+  --font-body: var(--font-archivo), system-ui, sans-serif;
+}
+
 html {
   scroll-behavior: auto;
 }
@@ -11,11 +21,18 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: #0a0a0a;
-  color: #f5f5f5;
-  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
 }
 
 a {
   color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
 }

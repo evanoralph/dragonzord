@@ -72,7 +72,12 @@ export default function ScrollVideo({
   const sceneRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   useLayoutEffect(() => {
-    console.log("[ScrollVideo] mount", { src, fps, sceneCount: scenes.length });
+    console.log("[ScrollVideo] mount", {
+      src,
+      fps,
+      sceneCount: scenes.length,
+      sceneIds: scenes.map((s) => s.id),
+    });
     gsap.registerPlugin(ScrollTrigger);
     // Mobile browsers fire resize when the URL bar collapses; without this the
     // pin recalculates mid-scroll and the video visibly jumps.
@@ -245,26 +250,56 @@ export default function ScrollVideo({
 
         <div className={styles.scrim} aria-hidden="true" />
 
+        <div className={styles.chrome} aria-hidden="true">
+          <span>Mighty Morphin / Sixth Zord</span>
+          <span className={styles.chromeDossier}>
+            <span className={styles.chromeDot} />
+            Dossier
+          </span>
+        </div>
+
         <div ref={overlaysRef} className={styles.overlays}>
-          {scenes.map((scene, index) => (
-            <div
-              key={scene.id}
-              ref={(el) => {
-                sceneRefs.current[index] = el;
-              }}
-              className={[
-                styles.scene,
-                styles[`align_${scene.align ?? "center"}`],
-                styles[`pos_${scene.position ?? "center"}`],
-              ].join(" ")}
-            >
-              <div className={styles.sceneInner}>
-                {scene.eyebrow ? <p className={styles.eyebrow}>{scene.eyebrow}</p> : null}
-                {scene.title ? <h2 className={styles.title}>{scene.title}</h2> : null}
-                {scene.body ? <p className={styles.body}>{scene.body}</p> : null}
+          {scenes.map((scene, index) => {
+            const isHeroTitle = Boolean(scene.titleAccent);
+            return (
+              <div
+                key={scene.id}
+                ref={(el) => {
+                  sceneRefs.current[index] = el;
+                }}
+                className={[
+                  styles.scene,
+                  styles[`align_${scene.align ?? "center"}`],
+                  styles[`pos_${scene.position ?? "center"}`],
+                ].join(" ")}
+              >
+                <div className={styles.sceneInner}>
+                  {scene.imageSrc ? (
+                    // eslint-disable-next-line @next/next/no-img-element -- static overlay asset; keep simple
+                    <img
+                      className={styles.sceneImage}
+                      src={scene.imageSrc}
+                      alt={scene.imageAlt ?? ""}
+                    />
+                  ) : null}
+                  {scene.eyebrow ? <p className={styles.eyebrow}>{scene.eyebrow}</p> : null}
+                  {scene.title || scene.titleAccent ? (
+                    <h2
+                      className={[styles.title, isHeroTitle ? styles.titleHero : ""]
+                        .filter(Boolean)
+                        .join(" ")}
+                    >
+                      {scene.title}
+                      {scene.titleAccent ? (
+                        <span className={styles.titleAccent}>{scene.titleAccent}</span>
+                      ) : null}
+                    </h2>
+                  ) : null}
+                  {scene.body ? <p className={styles.body}>{scene.body}</p> : null}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

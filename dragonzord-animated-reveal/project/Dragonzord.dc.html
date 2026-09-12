@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-7f86b861-9139-46af-8d6a-fbf664a6784a/styles.css">
+<script src="_ds/modernist-7f86b861-9139-46af-8d6a-fbf664a6784a/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&display=swap">
+<style>
+  body { margin: 0; background: var(--color-bg); }
+  a { color: var(--color-accent-700); text-decoration: none; border-bottom: 2px solid var(--color-accent); }
+  a:hover { color: var(--color-accent-600); }
+  @keyframes dz-coin { from { opacity: 0; transform: scale(.72) rotate(-16deg); filter: blur(10px); } to { opacity: 1; transform: scale(1) rotate(0deg); filter: blur(0); } }
+  @keyframes dz-letter { from { opacity: 0; transform: translate3d(0, 0.9em, 0) scaleY(1.25); filter: blur(9px); } to { opacity: 1; transform: none; filter: blur(0); } }
+  @keyframes dz-rule { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @keyframes dz-up { from { opacity: 0; transform: translate3d(0, 14px, 0); } to { opacity: 1; transform: none; } }
+  @keyframes dz-blink { 0%, 45% { opacity: 1; } 50%, 60% { opacity: .15; } 65%, 100% { opacity: 1; } }
+</style>
+</helmet>
+
+<div style="font-family: var(--font-body); color: var(--color-text); background: var(--color-bg);">
+
+  <section ref="{{ stageRef }}" style="position: relative; height: 420vh; background: #000;">
+    <div style="position: sticky; top: 0; height: 100vh; overflow: hidden; background: #000; isolation: isolate;">
+      <img ref="{{ mediaRef }}" src="public/videos/cinematic-video-poster.jpg" alt="Dragonzord head" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; display: block; filter: grayscale(1) contrast(1.06); transform: translateZ(0) scale(1.06); will-change: transform;">
+      <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,0) 52%), linear-gradient(to bottom, rgba(0,0,0,.5) 0%, rgba(0,0,0,0) 34%);"></div>
+
+      <div style="position: absolute; inset: 0; display: flex; align-items: flex-start; justify-content: space-between; padding: clamp(16px, 3vw, 40px); color: #fff; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; font-weight: 600; pointer-events: none;">
+        <span>Mighty Morphin / Sixth Zord</span>
+        <span style="display: flex; align-items: center; gap: 8px;"><span style="width: 8px; height: 8px; background: var(--color-accent); animation: dz-blink 2.4s steps(1, end) infinite;"></span>Dossier</span>
+      </div>
+
+      <div ref="{{ scenesRef }}" style="position: absolute; inset: 0; display: grid; pointer-events: none;">
+
+        <div data-intro="1" data-start="0" data-end="0.14" style="grid-area: 1 / 1; display: flex; align-items: flex-end; padding: clamp(20px, 5vw, 72px); color: #fff;">
+          <div>
+            <img src="uploads/dcab7f82888fc04dd48252ca1e31e16d.jpg" alt="Dragon Power Coin" style="width: clamp(84px, 9vw, 124px); height: auto; display: block; margin-bottom: clamp(16px, 2.5vw, 28px); animation: dz-coin 1.25s cubic-bezier(.16,1,.3,1) both;">
+            <p style="margin: 0 0 12px; font-size: 11px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; animation: dz-up .9s .15s both;">Dragon Power Coin — Green</p>
+            <h1 style="margin: 0; font-family: var(--font-heading); font-weight: 900; font-size: clamp(2.2rem, 7.6vw, 8.5rem); line-height: .88; letter-spacing: -0.045em; text-transform: uppercase; display: flex; flex-wrap: nowrap; white-space: nowrap;">
+              <span style="display: inline-block; animation: dz-letter .85s cubic-bezier(.16,1,.3,1) .25s both;">D</span>
+              <span style="display: inline-block; animation: dz-letter .85s cubic-bezier(.16,1,.3,1) .31s both;">R</span>
+              <span style="display: inline-block; animation: dz-letter .85s cubic-bezier(.16,1,.3,1) .37s both;">A</span>
+              <span style="display: inline-block; animation: dz-letter .85s cubic-bezier(.16,1,.3,1) .43s both;">G</span>
+              <span style="display: inline-block; animation: dz-letter .85s cubic-bezier(.16,1,.3,1) .49s both;">O</span>
+              <span style="display: inline-block; animation: dz-letter .85s cubic-bezier(.16,1,.3,1) .55s both;">N</span>
+              <span style="display: inline-block; color: var(--color-accent-400); animation: dz-letter .85s cubic-bezier(.16,1,.3,1) .61s both;">Z</span>
+              <span style="display: inline-block; color: var(--color-accent-400); animation: dz-letter .85s cubic-bezier(.16,1,.3,1) .67s both;">O</span>
+              <span style="display: inline-block; color: var(--color-accent-400); animation: dz-letter .85s cubic-bezier(.16,1,.3,1) .73s both;">R</span>
+              <span style="display: inline-block; color: var(--color-accent-400); animation: dz-letter .85s cubic-bezier(.16,1,.3,1) .79s both;">D</span>
+            </h1>
+            <div style="height: 2px; background: #fff; transform-origin: left; margin: clamp(16px, 2.5vw, 28px) 0; animation: dz-rule 1s .85s cubic-bezier(.16,1,.3,1) both;"></div>
+            <p style="margin: 0; max-width: 32rem; font-size: clamp(.95rem, 1.4vw, 1.125rem); line-height: 1.5; animation: dz-up 1s 1s both;">Summoned from the sea off Angel Grove by a flute that doubles as a blade. Scroll.</p>
+          </div>
+        </div>
+
+        <div data-start="0.17" data-end="0.4" style="grid-area: 1 / 1; display: flex; align-items: flex-end; padding: clamp(20px, 5vw, 72px); color: #fff; opacity: 0; visibility: hidden; will-change: opacity;">
+          <div style="max-width: 34rem;">
+            <p style="margin: 0 0 14px; font-size: 11px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--color-accent-400);">01 — Command</p>
+            <h2 style="margin: 0 0 18px; font-family: var(--font-heading); font-weight: 800; font-size: clamp(1.9rem, 4.6vw, 3.6rem); line-height: 1; letter-spacing: -0.03em;"><span data-w style="display: inline-block; margin-right: .26em; opacity: 0;">Played,</span><span data-w style="display: inline-block; margin-right: .26em; opacity: 0;">not</span><span data-w style="display: inline-block; margin-right: .26em; opacity: 0;">piloted</span></h2>
+            <p style="margin: 0; font-size: clamp(.95rem, 1.5vw, 1.0625rem); line-height: 1.55;">The Dragon Dagger is an enchanted flute as well as a weapon. Tommy Oliver usually commanded the Dragonzord remotely from the sidelines, taking its cockpit only when a fight demanded closer control.</p>
+          </div>
+        </div>
+
+        <div data-start="0.42" data-end="0.63" style="grid-area: 1 / 1; display: flex; align-items: flex-end; padding: clamp(20px, 5vw, 72px); color: #fff; opacity: 0; visibility: hidden; will-change: opacity;">
+          <div style="max-width: 34rem;">
+            <p style="margin: 0 0 14px; font-size: 11px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--color-accent-400);">02 — Armament</p>
+            <h2 style="margin: 0 0 18px; font-family: var(--font-heading); font-weight: 800; font-size: clamp(1.9rem, 4.6vw, 3.6rem); line-height: 1; letter-spacing: -0.03em;"><span data-w style="display: inline-block; margin-right: .26em; opacity: 0;">Finger</span><span data-w style="display: inline-block; margin-right: .26em; opacity: 0;">missiles.</span><span data-w style="display: inline-block; margin-right: .26em; opacity: 0;">Tail</span><span data-w style="display: inline-block; margin-right: .26em; opacity: 0;">drill.</span></h2>
+            <p style="margin: 0; font-size: clamp(.95rem, 1.5vw, 1.0625rem); line-height: 1.55;">Missiles launch from its fingertips, and the drill on the tip of its tail swings around to strike. Built for water, it fought submerged far better than the Dino Megazord.</p>
+          </div>
+        </div>
+
+        <div data-start="0.65" data-end="0.84" style="grid-area: 1 / 1; display: flex; align-items: flex-end; justify-content: flex-end; padding: clamp(20px, 5vw, 72px); color: #fff; opacity: 0; visibility: hidden; will-change: opacity;">
+          <div style="max-width: 34rem;">
+            <p style="margin: 0 0 14px; font-size: 11px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--color-accent-400);">03 — Allegiance</p>
+            <h2 style="margin: 0 0 18px; font-family: var(--font-heading); font-weight: 800; font-size: clamp(1.9rem, 4.6vw, 3.6rem); line-height: 1; letter-spacing: -0.03em;"><span data-w style="display: inline-block; margin-right: .26em; opacity: 0;">Whoever</span><span data-w style="display: inline-block; margin-right: .26em; opacity: 0;">holds</span><span data-w style="display: inline-block; margin-right: .26em; opacity: 0;">the</span><span data-w style="display: inline-block; margin-right: .26em; opacity: 0;">coin</span></h2>
+            <p style="margin: 0; font-size: clamp(.95rem, 1.5vw, 1.0625rem); line-height: 1.55;">The Zord answers to the Green Power Coin and the Dagger, not to a side. Rita Repulsa gave both to her evil Green Ranger; when the spell broke, Dragonzord followed Tommy to the Rangers — and when the Dagger was stolen, it turned on Angel Grove.</p>
+          </div>
+        </div>
+
+        <div data-start="0.86" data-end="1" style="grid-area: 1 / 1; display: flex; align-items: flex-end; padding: clamp(20px, 5vw, 72px); color: #fff; opacity: 0; visibility: hidden; will-change: opacity;">
+          <div>
+            <h2 style="margin: 0; font-family: var(--font-heading); font-weight: 900; font-size: clamp(2.2rem, 7vw, 6rem); line-height: .92; letter-spacing: -0.04em; text-transform: uppercase;"><span data-w style="display: inline-block; margin-right: .26em; opacity: 0;">Dragonzord</span><span data-w style="display: inline-block; margin-right: .26em; opacity: 0; color: var(--color-accent-400);">Power!</span></h2>
+            <p style="margin: 16px 0 0; font-size: 11px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase;">Dormant beneath Angel Grove Bay</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;stageHeight&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:420,&quot;min&quot;:250,&quot;max&quot;:650,&quot;step&quot;:10,&quot;unit&quot;:&quot;vh&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Scroll stage&quot;},&quot;grayscaleMedia&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Scroll stage&quot;},&quot;wordStagger&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.05,&quot;min&quot;:0,&quot;max&quot;:0.12,&quot;step&quot;:0.01,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Text animation&quot;}}">
+const cl = (t) => Math.max(0, Math.min(1, t));
+const ease = (t) => 1 - Math.pow(1 - t, 3);
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.stageRef = React.createRef();
+    this.mediaRef = React.createRef();
+    this.scenesRef = React.createRef();
+    this.queued = false;
+  }
+
+  componentDidMount() {
+    const stage = this.stageRef.current;
+    if (stage) stage.style.height = (this.props.stageHeight ?? 420) + "vh";
+    const media = this.mediaRef.current;
+    if (media) {
+      media.style.filter = (this.props.grayscaleMedia ?? true)
+        ? "grayscale(1) contrast(1.06)"
+        : "contrast(1.06) saturate(1.05)";
+    }
+
+    const holder = this.scenesRef.current;
+    this.scenes = holder
+      ? Array.from(holder.children).map((el) => ({
+          el,
+          start: parseFloat(el.dataset.start || "0"),
+          end: parseFloat(el.dataset.end || "1"),
+          intro: el.dataset.intro === "1",
+          words: Array.from(el.querySelectorAll("[data-w]")),
+          last: -1,
+        }))
+      : [];
+    this.reveals = Array.from(document.querySelectorAll("[data-reveal]"));
+
+    this.onScroll = () => {
+      if (this.queued) return;
+      this.queued = true;
+      requestAnimationFrame(this.paint);
+    };
+    this.paint = () => {
+      this.queued = false;
+      this.update();
+    };
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+    window.addEventListener("resize", this.onScroll);
+    this.update();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener("resize", this.onScroll);
+  }
+
+  update() {
+    const stage = this.stageRef.current;
+    if (!stage) return;
+    const r = stage.getBoundingClientRect();
+    const span = Math.max(r.height - window.innerHeight, 1);
+    const p = cl(-r.top / span);
+
+    const media = this.mediaRef.current;
+    if (media) {
+      media.style.transform =
+        "translate3d(0," + (p * -3).toFixed(2) + "%,0) scale(" + (1.06 + p * 0.1).toFixed(3) + ")";
+    }
+
+    const stagger = this.props.wordStagger ?? 0.05;
+
+    for (const s of this.scenes) {
+      const local = (p - s.start) / Math.max(s.end - s.start, 0.0001);
+      const out = s.end >= 0.999 ? 1 : cl((1 - local) / 0.2);
+      let alpha;
+      if (s.intro) {
+        alpha = ease(cl(1 - local));
+      } else {
+        alpha = local < 0 ? 0 : ease(Math.min(cl(local / 0.18), out));
+      }
+      if (Math.abs(alpha - s.last) > 0.004) {
+        s.last = alpha;
+        s.el.style.opacity = String(alpha);
+        s.el.style.visibility = alpha <= 0.002 ? "hidden" : "visible";
+        s.el.style.filter = alpha > 0.99 ? "none" : "blur(" + ((1 - alpha) * 5).toFixed(2) + "px)";
+        if (!s.intro) {
+          s.words.forEach((w, i) => {
+            const wa = ease(cl((local - i * stagger) / 0.22)) * out;
+            w.style.opacity = String(wa);
+            w.style.transform = "translate3d(0," + ((1 - wa) * 30).toFixed(1) + "px,0)";
+          });
+        }
+      }
+    }
+
+    const trigger = window.innerHeight * 0.86;
+    for (const el of this.reveals) {
+      if (el.dataset.shown === "1") continue;
+      if (el.getBoundingClientRect().top < trigger) {
+        el.dataset.shown = "1";
+        el.style.opacity = "1";
+        el.style.transform = "none";
+      }
+    }
+  }
+
+  renderVals() {
+    return { stageRef: this.stageRef, mediaRef: this.mediaRef, scenesRef: this.scenesRef };
+  }
+}
+</script>
+</body>
+</html>
