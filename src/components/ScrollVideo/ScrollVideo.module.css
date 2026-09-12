@@ -1,0 +1,154 @@
+.section {
+  position: relative;
+  width: 100%;
+  /* The section is exactly one viewport tall. ScrollTrigger's pin spacer
+     supplies the extra scroll distance, so nothing here needs a fixed height. */
+}
+
+.viewport {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100svh; /* avoids the mobile URL-bar height jump */
+  overflow: hidden;
+  background-color: #000;
+  isolation: isolate;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  /* Keep the decoded frame on its own compositor layer so seeks don't
+     repaint the overlay text. */
+  will-change: transform;
+  transform: translateZ(0);
+  pointer-events: none;
+}
+
+/* Ultra-wide displays: cover would crop the top and bottom hard, so bias
+   toward the centre of the frame rather than letting it blow up. */
+@media (min-aspect-ratio: 21/9) {
+  .media {
+    object-position: center 45%;
+  }
+}
+
+/* Portrait phones: cover crops the sides heavily. Favour the middle-upper
+   part of the frame, where the subject usually sits. */
+@media (max-width: 768px) and (orientation: portrait) {
+  .media {
+    object-position: center 40%;
+  }
+}
+
+/* Legibility scrim. Subtle enough that it does not flatten the footage. */
+.scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 45%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 35%);
+}
+
+.overlays {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  pointer-events: none;
+}
+
+.scene {
+  /* Every scene occupies the same grid cell so they can crossfade in place. */
+  grid-area: 1 / 1;
+  display: flex;
+  padding: clamp(1.5rem, 5vw, 5rem);
+  opacity: 0;
+  visibility: hidden;
+  will-change: opacity, transform, filter;
+}
+
+.sceneInner {
+  max-width: 32rem;
+  color: #fff;
+  text-wrap: balance;
+}
+
+/* Horizontal placement */
+.align_left {
+  justify-content: flex-start;
+  text-align: left;
+}
+.align_center {
+  justify-content: center;
+  text-align: center;
+}
+.align_right {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+/* Vertical placement */
+.pos_top {
+  align-items: flex-start;
+}
+.pos_center {
+  align-items: center;
+}
+.pos_bottom {
+  align-items: flex-end;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: clamp(0.7rem, 1.1vw, 0.8rem);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.75rem, 4.5vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+.body {
+  margin: 1rem 0 0;
+  font-size: clamp(0.95rem, 1.5vw, 1.125rem);
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+/* Reduced motion: no pin and no scrub, so the scenes cannot crossfade in a
+   single cell. Stack them into a readable column over the poster frame. */
+.overlaysStatic {
+  display: block;
+  overflow-y: auto;
+  padding: clamp(2rem, 6vw, 5rem) 0;
+}
+
+.overlaysStatic .scene {
+  grid-area: auto;
+  padding-block: clamp(1rem, 3vw, 2rem);
+}
+
+@media (max-width: 768px) {
+  .sceneInner {
+    max-width: 24rem;
+  }
+  /* Side-aligned text gets cramped on narrow screens. */
+  .align_left,
+  .align_right {
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
